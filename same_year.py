@@ -13,7 +13,6 @@ def sort_list(movies):
         return  sorted_years
 sorted_years_list = sort_list(movieInfo)
 # pprint (sorted_years_list)
-
 group_year = {}
 def group_by_year(sameYears,movieslist):
         for same_years in sameYears:
