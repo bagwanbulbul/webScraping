@@ -4,7 +4,7 @@ from movie_details import*
 
 def get_movie_list_details(movies_list):
         movie_data=[]
-        for index in movies_list[:10]:
+        for index in movies_list:
                 all_url = index["url"]
                 movie = scrape_movie_details(all_url)
                 movie_data.append(movie)
