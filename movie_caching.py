@@ -1,10 +1,9 @@
-# from all_movies_details import*
-# pprint (all_movies_details)
+from all_movies_details import*
 import json
 import os.path
 from pprint import pprint 
 from Indian_top50_Movies import*
-# from all_movie_details import*
+from all_movies_details import*
 
 def writingFile(fileName, fileData):
     file = open(fileName, "w")
@@ -22,15 +21,18 @@ def get_movie_list_details(movies_list):
         movie_data=[]
         for index in movies_list:
                 all_url = index["url"]
-                get_data = requests.get(all_url)
-                # pprint (get_data)
+                fileName = "cachingFiles/"+all_url[28:36]+".json"
+                if os.path.exists(fileName):
+                        data = readingfile(fileName)
+                        return data
+                else:
+                        movie = scrape_movie_details(all_url)  
+                        fileData = movie
+                        data =  writingFile(fileName, fileData)
+                        return data
 
-                json_data = get_data.json()
-                pprint (json_data)
+        # return data
+movie_details = get_movie_list_details(movieInfo)
+pprint (movie_details)
 
-                # fileName = "urls/"+all_url+".json"
-                # data = writingFile(fileName, json_data)
-                # movie = scrape_movie_details(all_url)
-                # movie_data.append(movie)
-        return movie_data
-movie_all_data = get_movie_list_details(movieInfo)
+
