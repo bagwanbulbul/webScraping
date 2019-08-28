@@ -23,14 +23,16 @@ def analyse_language_and_directors(movie_list,directors_list):
                 for particular_language in all_language:
                         if particular_language not in selected_language:
                                 selected_language.append(particular_language)
-                                count = 0
+                count = 0
                 for same_language in selected_language:
                         for language in all_language:
                                 if language == same_language:
                                         count = count +1
                         language_count[same_language] = count
                 main_data[index] = language_count
-        pprint (main_data)         
+        # pprint (main_data)  
+        return main_data       
 data = movie_all_data
 directors = without_duplicate_director_list
 analyse_data = analyse_language_and_directors(data,directors)
+pprint (analyse_data)
