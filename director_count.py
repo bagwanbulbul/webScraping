@@ -30,4 +30,4 @@ def analyse_movies_director(selected_director,director_data):
         movie_director[director]= count
     return (movie_director)
 all_data = analyse_movies_director(selected,director_data)
-pprint (all_data)
+# pprint (all_data)
