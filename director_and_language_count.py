@@ -35,4 +35,4 @@ def analyse_language_and_directors(movie_list,directors_list):
 data = movie_all_data
 directors = without_duplicate_director_list
 analyse_data = analyse_language_and_directors(data,directors)
-pprint (analyse_data)
+# pprint (analyse_data)

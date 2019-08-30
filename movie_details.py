@@ -1,6 +1,9 @@
 from pprint import pprint
 import requests
+from task12 import*
 from bs4 import BeautifulSoup
+from task12 import*
+
 movie = {}
 url = "https://www.imdb.com/title/tt0093603/"
 
@@ -81,9 +84,10 @@ def scrape_movie_details(movie_url):
                 language.append(i.get_text())
     movie["country"] = country
     movie["language"] = language
+    # movie["cast"] = scrape_cast
     new_movie = movie.copy()
     movie.clear()
     return new_movie
-# url = "https://www.imdb.com/title/tt0093603/"
-# movie_details = scrape_movie_details(url)
+url = "https://www.imdb.com/title/tt0093603/"
+movie_details = scrape_movie_details(url)
 # pprint (movie_details)

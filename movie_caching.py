@@ -3,6 +3,7 @@ import json
 import os.path
 from pprint import pprint 
 from Indian_top50_Movies import*
+from task12 import*
 
 def writingFile(fileName, fileData):
     file = open(fileName, "w")
@@ -26,12 +27,14 @@ def get_movie_list_details(movies_list):
                         movies.append(read_data)
                         
                 else:
-                        movie = scrape_movie_details(all_url)  
+                        movie = scrape_movie_details(all_url) 
+                        cast=scrape_movie_cast(all_url)
+                        movie["cast"]=cast 
                         fileData = movie
                         write_data =  writingFile(fileName, fileData)
                         
         return movies        
 movie_details = get_movie_list_details(movieInfo)
-pprint (movie_details)
+# pprint (movie_details)
 
 
